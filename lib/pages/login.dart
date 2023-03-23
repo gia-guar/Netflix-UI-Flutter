@@ -24,7 +24,7 @@ class LoginPage extends StatelessWidget{
         // logo
         const Center(child: Icon(Icons.lock, size: 100, color: Colors.white70,)),
         
-        const SizedBox(height: 50),
+        const SizedBox(height: 10),
 
         // welcome back
         const Text(
