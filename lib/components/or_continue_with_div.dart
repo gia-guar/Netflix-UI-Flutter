@@ -2,31 +2,31 @@ import 'package:flutter/material.dart' ;
 
 class or_continue_with_div extends StatelessWidget{
   final double pad;
-
-  const or_continue_with_div({super.key, this.pad=0});
+  final Color color;
+  const or_continue_with_div({super.key, this.pad=0, this.color=Colors.black54});
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal:pad),
       child: Row(
-        children: const [
+        children:[
         Expanded(child: 
-          Divider(
+           Divider(
             thickness: 0.5,
-            color: Colors.white70,
+            color: color,
           ),
         ),
     
         Padding(
           padding: EdgeInsets.symmetric(horizontal:15),
-          child: Text('or continue with',style: TextStyle(color: Colors.white70),),
+          child: Text('or continue with',style: TextStyle(color: color),),
         ),
     
         Expanded(child: 
           Divider(
             thickness: 0.5,
-            color: Colors.white70,
+            color: color,
           ),
         )
         ],

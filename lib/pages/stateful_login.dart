@@ -28,7 +28,7 @@ class _ThemedLoginPageState extends State<ThemedLoginPage>{
   static double PADDING_FROM_BORDERS  = 20;
 
   bool _isDark=true; 
-  Icon _themeIcon = Icon(Icons.mode_night_rounded, color: Colors.white,);
+  Icon _themeIcon = Icon(Icons.mode_night_rounded, color: Colors.black,);
   Color _primaryColor1 =Colors.black;
   Color _primaryColor2 = Colors.white;
   Color _secondaryColor1 = Colors.white10;
@@ -85,15 +85,19 @@ class _ThemedLoginPageState extends State<ThemedLoginPage>{
 
     return Scaffold(
       backgroundColor: _primaryColor1,
-      body: Column(
+      body: Column(mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Row( mainAxisAlignment: MainAxisAlignment.end,
-            children: [
-              FloatingActionButton(onPressed: ()=> _changeTheme(),
-                  backgroundColor: _primaryColor2,
-                  child: _themeIcon,
-                ),
-            ],
+          Padding(
+            padding: EdgeInsets.only(right:PADDING_FROM_BORDERS),
+            child: Row( mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                FloatingActionButton(onPressed: ()=> _changeTheme(),
+                    backgroundColor: _primaryColor2,
+                    splashColor: _primaryColor2,
+                    child: _themeIcon,
+                  ),
+              ],
+            ),
           ),
 
           Column(mainAxisAlignment: MainAxisAlignment.center,
@@ -177,7 +181,7 @@ class _ThemedLoginPageState extends State<ThemedLoginPage>{
             const SizedBox(height: 10,),
 
             // or continue with
-            or_continue_with_div(pad: PADDING_FROM_BORDERS,), 
+            or_continue_with_div(pad: PADDING_FROM_BORDERS,  color:_accentColor), 
            
           const SizedBox(height:10),
 
