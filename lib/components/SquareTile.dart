@@ -3,13 +3,18 @@ import 'package:flutter/material.dart';
 
 class SquareTile extends StatelessWidget{
   String path;
-  SquareTile({super.key, required this.path});
+  Color backgroundColor;
+
+  SquareTile({super.key, 
+  required this.path,
+  this.backgroundColor=Colors.white,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-      color: Colors.white,
+      color: backgroundColor,
         borderRadius: BorderRadius.circular(10),
         ),
 

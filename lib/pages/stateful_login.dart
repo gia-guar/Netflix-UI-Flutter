@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animated_button/flutter_animated_button.dart';
 import 'package:login_ui/components/SquareTile.dart';
@@ -60,7 +61,7 @@ class _ThemedLoginPageState extends State<ThemedLoginPage>{
         _primaryColor1 =Colors.white;
         _primaryColor2 = Colors.black;
         _secondaryColor1 = Colors.black12;
-        _accentColor = Color.fromARGB(137, 220, 16, 16);
+        _accentColor = Colors.grey;
         _focusAccentColor = Colors.black;
       }
     });
@@ -69,6 +70,16 @@ class _ThemedLoginPageState extends State<ThemedLoginPage>{
   
   @override 
   Widget build(BuildContext context){
+    late String apple_logo;
+    if (_isDark){
+      apple_logo = 'lib/logos/apple.png';
+    } else{
+      apple_logo = 'lib/logos/whiteapple.png';
+      if (kDebugMode) {
+        print('white');
+      }
+    }
+
     return Scaffold(
       backgroundColor: _primaryColor1,
       body: Column(mainAxisAlignment: MainAxisAlignment.center,
@@ -103,7 +114,7 @@ class _ThemedLoginPageState extends State<ThemedLoginPage>{
             hintText: 'username',
             theme: [
               _secondaryColor1,
-              _primaryColor1,
+              _primaryColor2,
               _accentColor,
               _focusAccentColor
               ,]
@@ -119,11 +130,11 @@ class _ThemedLoginPageState extends State<ThemedLoginPage>{
             controller: passwordController,
             obscureText: true,
             hintText: 'password',
-            theme: [
-              _secondaryColor1, //bck
-              _primaryColor2, // text
-              _accentColor, // borer
-              _focusAccentColor // focused
+            theme:[
+               _secondaryColor1,
+              _primaryColor2,
+              _accentColor,
+              _focusAccentColor
               ,]
           ),
         ),
@@ -134,8 +145,8 @@ class _ThemedLoginPageState extends State<ThemedLoginPage>{
         Padding(
           padding: EdgeInsets.only(right: PADDING_FROM_BORDERS),
           child: Row(mainAxisAlignment: MainAxisAlignment.end,
-            children: const [
-              Text('Forgot password?',style: TextStyle(color: Colors.white70),),
+            children: [
+              Text('Forgot password?',style: TextStyle(color: _primaryColor2),),
             ],
           ),
         ),
@@ -145,7 +156,12 @@ class _ThemedLoginPageState extends State<ThemedLoginPage>{
         // signin
         my_animated_button(text:'SIGN IN', 
           onPress: signUserIn, 
-          animatedOn: AnimatedOn.onHover
+          animatedOn: AnimatedOn.onHover,
+          textColor: _primaryColor2,
+          backgroundColor: _primaryColor1,
+          selectedBackgroundColor: _primaryColor2,
+          selectedTextColor: _primaryColor1,
+          borderColor: _primaryColor2,
         ),
 
         const SizedBox(height: 10,),
@@ -159,12 +175,12 @@ class _ThemedLoginPageState extends State<ThemedLoginPage>{
       Row(mainAxisAlignment: MainAxisAlignment.center,
         children: [
           //Google
-          SquareTile(path: 'lib/logos/google.png'),
+          SquareTile(path: 'lib/logos/google.png', backgroundColor: _primaryColor2,),
 
           const SizedBox(width: 20,),
 
           //Apple
-          SquareTile(path: 'lib/logos/apple.png')
+          SquareTile(path: apple_logo, backgroundColor: _primaryColor2,)
         ],),
 
         const SizedBox(height: 20),
