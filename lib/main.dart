@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
-import 'pages/login.dart';
-<<<<<<< HEAD
-=======
-import 'pages/stateful_login.dart';
->>>>>>> 88dceb44749fa41caeb0445827195dd87f4a010b
+import '../pages/login.dart';
+import '../pages/stateful_login.dart';
 
 void main() {
   runApp(const MainApp());
@@ -15,11 +12,7 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-<<<<<<< HEAD
-      home: LoginPage(),
-=======
       home: ThemedLoginPage(),
->>>>>>> 88dceb44749fa41caeb0445827195dd87f4a010b
     );
   }
 }
